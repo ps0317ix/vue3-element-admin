@@ -20,9 +20,6 @@ const useUserStore = defineStore({
     async RESET_STATE() {
       this.$reset();
     },
-    /**
-     * 登录
-     */
     login(data: LoginForm) {
       const { username, password } = data;
       return new Promise((resolve, reject) => {
@@ -43,9 +40,6 @@ const useUserStore = defineStore({
           });
       });
     },
-    /**
-     *  获取用户信息（昵称、头像、角色集合、权限集合）
-     */
     getUserInfo() {
       return new Promise((resolve, reject) => {
         getUserInfo()
@@ -68,10 +62,6 @@ const useUserStore = defineStore({
           });
       });
     },
-
-    /**
-     *  注销
-     */
     logout() {
       return new Promise((resolve, reject) => {
         logoutApi()
@@ -86,10 +76,6 @@ const useUserStore = defineStore({
           });
       });
     },
-
-    /**
-     * 清除 Token
-     */
     resetToken() {
       return new Promise(resolve => {
         localStorage.remove('token');

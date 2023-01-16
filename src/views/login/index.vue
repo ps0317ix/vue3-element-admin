@@ -78,7 +78,7 @@
       </div>
     </el-form>
 
-    <div v-if="showCopyright == true" class="copyright">
+    <div v-if="showCopyright === true" class="copyright">
       <p>{{ $t('login.copyright') }}</p>
       <p>{{ $t('login.icp') }}</p>
     </div>
@@ -88,16 +88,13 @@
 <script setup lang="ts">
 import { onMounted, reactive, ref, toRefs, watch, nextTick } from 'vue';
 
-// 组件依赖
 import { ElForm, ElInput } from 'element-plus';
 import router from '@/router';
 import LangSelect from '@/components/LangSelect/index.vue';
 import SvgIcon from '@/components/SvgIcon/index.vue';
 
-// 状态管理依赖
 import useStore from '@/store';
 
-// API依赖
 import { useRoute } from 'vue-router';
 import { LoginForm } from '@/api/auth/types';
 
@@ -161,9 +158,6 @@ function showPwd() {
   });
 }
 
-/**
- *  登录处理
- */
 function handleLogin() {
   loginFormRef.value.validate((valid: boolean) => {
     if (valid) {
